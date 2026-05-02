@@ -20,7 +20,7 @@ const tokens = {
   cardRadius: 20,
 
   /** Album art thumbnail size (px) */
-  artSize: 64,
+  artSize: 0,
 
   /** Large play/pause button diameter (px) */
   playButtonSize: 52,
