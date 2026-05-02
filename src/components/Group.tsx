@@ -8,6 +8,7 @@ import {
   FormControlLabel, FormGroup, MenuItem, Select, Slider, Snackbar,
   Stack, TextField, Typography, IconButton, alpha,
 } from '@mui/material';
+import tokens from '../tokens';
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import {
   VolumeUp as VolumeUpIcon,
@@ -248,8 +249,8 @@ export default function Group(props: GroupProps) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            px: 1.5,
-            pt: 1,
+            px: tokens.cardPaddingX,
+            pt: tokens.cardPaddingY,
             pb: 0.5,
           }}
         >
@@ -290,15 +291,15 @@ export default function Group(props: GroupProps) {
 
         {/* Now playing section */}
         {hasMetadata && (
-          <Box sx={{ px: 2, pt: 0.5, pb: 1 }}>
+          <Box sx={{ px: tokens.cardPaddingX, pt: 0.5, pb: 1 }}>
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Box
                 component="img"
                 src={artUrl}
                 alt={title ? `${title} cover` : 'Album art'}
                 sx={{
-                  width: 64,
-                  height: 64,
+                  width: tokens.artSize,
+                  height: tokens.artSize,
                   borderRadius: 2,
                   objectFit: 'cover',
                   flexShrink: 0,
@@ -347,15 +348,15 @@ export default function Group(props: GroupProps) {
               onClick={() => props.snapcontrol.control(props.group.stream_id, 'previous')}
               sx={{ color: 'text.secondary' }}
             >
-              <SkipPreviousIcon sx={{ fontSize: 30 }} />
+              <SkipPreviousIcon sx={{ fontSize: tokens.skipIconSize }} />
             </IconButton>
 
             <IconButton
               aria-label="Play/Pause"
               onClick={handlePlayPauseClicked}
               sx={{
-                width: 52,
-                height: 52,
+                width: tokens.playButtonSize,
+                height: tokens.playButtonSize,
                 bgcolor: 'primary.main',
                 color: '#fff',
                 '&:hover': { bgcolor: 'primary.dark' },
@@ -373,14 +374,14 @@ export default function Group(props: GroupProps) {
               onClick={() => props.snapcontrol.control(props.group.stream_id, 'next')}
               sx={{ color: 'text.secondary' }}
             >
-              <SkipNextIcon sx={{ fontSize: 30 }} />
+              <SkipNextIcon sx={{ fontSize: tokens.skipIconSize }} />
             </IconButton>
           </Box>
         )}
 
         {/* Group volume (only shown when there are multiple clients) */}
         {groupClients.length > 1 && (
-          <Box sx={{ px: 2, pb: 0.5 }}>
+          <Box sx={{ px: tokens.cardPaddingX, pb: 0.5 }}>
             <Stack direction="row" spacing={1.5} alignItems="center">
               <IconButton
                 aria-label={props.group.muted ? "Unmute group" : "Mute group"}
@@ -420,10 +421,10 @@ export default function Group(props: GroupProps) {
         )}
 
         {/* Divider before client list */}
-        <Divider sx={{ mx: 2 }} />
+        <Divider sx={{ mx: tokens.cardPaddingX }} />
 
         {/* Client list */}
-        <Box sx={{ px: 1, pt: 0.5, pb: 1 }}>
+        <Box sx={{ px: tokens.cardPaddingX - 0.5, pt: 0.5, pb: tokens.cardPaddingY }}>
           {groupClients}
         </Box>
       </Card>
