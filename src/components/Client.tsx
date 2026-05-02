@@ -92,7 +92,7 @@ export default function Client(props: ClientProps) {
     <Box
       sx={{
         opacity: isConnected ? 1.0 : 0.45,
-        py: 0.75,
+        py: 0.5,
         px: 0.5,
       }}
     >

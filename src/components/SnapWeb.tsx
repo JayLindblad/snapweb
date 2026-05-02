@@ -42,7 +42,7 @@ const sharedComponents = {
   MuiSlider: {
     styleOverrides: {
       root: {
-        padding: '13px 0',
+        padding: '8px 0',
         height: 4,
       },
       track: {
