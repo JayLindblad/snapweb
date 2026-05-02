@@ -15,7 +15,10 @@ export default defineConfig({
     manifest: {
       name: 'Snapweb - Snapcast web client',
       short_name: 'Snapweb',
-      theme_color: '#ffffff',
+      theme_color: '#000000',
+      background_color: '#000000',
+      display: 'standalone',
+      orientation: 'portrait',
       "icons": [
         {
           "src": "pwa-64x64.png",
